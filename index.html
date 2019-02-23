@@ -355,24 +355,17 @@
       
         
           
-            <h3 id="配置vimrc配置"><a href="#配置vimrc配置" class="headerlink" title="配置vimrc配置"></a>配置vimrc配置</h3><p>在shell中可以通过 <code>vim ~/.vimrc</code> 或者 <code>vim /etc/vimrc</code> 打开vimrc文件对vim进行配置。在这个文件中可以进行很多和vim相关的配置，常用的如下（如果对其他配置感兴趣的可以自己百度）：</p>
-<p><img src="./img/vim1.png" alt> </p>
-<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="1-模式切换"><a href="#1-模式切换" class="headerlink" title="1.模式切换"></a>1.模式切换</h4><p>我们可以将vim分为命令模式、编辑模式和末行模式三种<br><strong>命令模式：</strong>进入vim的时候vim是处于命令模式状态下的，这个时候输入内容不会出现在编辑区  (最末什么都没有)</p>
-<p><strong>末行模式：</strong>在命令模式下输入冒号，让vim进入末行模式。在末行模式的冒号后面可以输入相关的一些指令进行相关操作  (最后有一个冒号)</p>
-<p><strong>编辑模式：</strong>在命令模式下按’i’进入编辑模式。在编辑模式下可以对文件内容进行编辑 (最后 –INSERT– 或者 –插入–)  </p>
-<p>####2.保存和退出<br>在末行模式下输入相应的指令可以对编辑区的内容进行保存和退出vim界面<br><strong>w</strong> – 只保存(类似快捷键ctr+s)<br><strong>q</strong> – 退出（在编辑区的内容全部都保存的情况下才有效）<br><strong>wq</strong> – 保存并退出<br><strong>q!</strong>  – 强制退出（不保存修改信息）    </p>
-<p>####3.光标操作<br>以下光标操作都是在命令模式下输入的<br><strong>^(shift+6)</strong>  – 移动到行首<br><strong>$(shift+4)</strong>  – 移动到行尾<br><strong>G(shift+g)</strong>    – 移动到文件末尾<br><strong>行号G</strong>            – 移动到指定行,例如:30G, 让光标直接跳转到行号是30的那一行<br><strong>gg</strong>                – 移动到文件开头  </p>
-<p>####4.文本操作<br>以下操作不带冒号的是在命令模式下输入，前面有冒号代码后面的内容是在末行模式下输入<br><strong>dd</strong>            – 删除光标所在的行<br><strong>数字dd</strong>        – 从光标所在行开始往后面开始删，删除指定数量行内容<br><strong>:%d</strong>        – 删除所有     </p>
-<p><strong>yy</strong>         – 复制光标所在的行<br><strong>数字yy</strong>        – 从光标所在行开始复制指定行数的内容<br><strong>p</strong>            – 将复制的内容粘贴到光标所在的位置<br><strong>u</strong>            – 撤销<br><strong>ctr+r</strong>    – 反撤销    </p>
-<p><strong>:%!sort</strong>  – 对内容排序  </p>
-<p><strong>:/查找对象[/gice]</strong>    – 搜索匹配正则表达式的内容，按回车回到命令模式后按n往前查找，按N往后查找  </p>
-<p>*<em>:1,$s/被替换对象/替换内容[/gice</em>]*    – 将正则表达式匹配到的内容替换成指定内容   </p>
-<pre><code>-    g: 全局匹配  
--     i: 忽略大小写 
--   c: 替换时需要提示  
--   e: 忽略错误  
-</code></pre>
-          
+          配置vimrc配置在shell中可以通过 vim ~/.vimrc 或者 vim /etc/vimrc 打开vimrc文件对vim进行配置。在这个文件中可以进行很多和vim相关的配置，常用的如下（如果对其他配置感兴趣的可以自己百度）：
+ 
+常用操作1.模式切换我们可以将vim分为命令模式、编辑模式和
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/22/学习笔记/vim编辑器之神/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -512,25 +505,20 @@
       
         
           
-            <p>###1. 搭建博客<br>使用hexo搭建个人博客前需要先在自己的电脑上装好git和node.js   </p>
-<ol>
-<li>首先在自己的电脑上创建一个空的文件夹’Hexo’  </li>
-<li>在gitbash中终端中通过<code>cd</code>指令进入到刚才创建的文件夹中   </li>
-<li>输入指令 <code>npm install -g hexo</code> 安装Hexo  </li>
-<li>输入指令 <code>hexo init</code> 进行初始化  </li>
-<li>依次输入指令<code>npm install</code> <code>hexo server</code> 启动服务器<br> 博客内容发生改变后可以通过<code>hexo clean</code> <code>hexo generate</code> <code>hexo deploy</code> <code>hexo server</code>刷新后重新启动    </li>
-</ol>
-<p>###2. 部署博客  </p>
-<ol>
-<li>在github上创建一个空的仓库，仓库名： <code>用户名.github.io</code>  </li>
-<li><p>修改博客本地仓库中的配置文件（Hexo目录下的_config.yml文件）,在文件末尾添加一下选中内容<br><img src="/Users/yuting/Desktop/Hexo/image1.png" alt>  </p>
-</li>
-<li><p>使用git部署, 输入指令<code>npm install hexo-deployer-git --save</code>  </p>
-</li>
-<li>输入指令<code>hexo clean</code> <code>hexo generate</code> <code>hexo deploy</code> 对博客进行提交</li>
-</ol>
+          ###1. 搭建博客使用hexo搭建个人博客前需要先在自己的电脑上装好git和node.js   
 
-          
+首先在自己的电脑上创建一个空的文件夹’Hexo’  
+在gitbash中终端中通过cd指令进入到刚才创建的文件夹中   
+输入指令 npm install -g hexo 安装Hexo  
+输入指令
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/22/学习笔记/Hexo博客搭建/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -670,19 +658,15 @@
       
         
           
-            <h2 id="1-基本指令"><a href="#1-基本指令" class="headerlink" title="1.基本指令"></a>1.基本指令</h2><p><code>git init</code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ——  新建git仓库<br><code>git add 文件/文件夹</code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ——  将文件添加到缓存区中<br><code>git add -A</code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 添加所有内容到缓存区中<br><code>git stutas</code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;———    查看git状态<br><code>git commit -m  ‘提交信息’</code>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——  将缓存区中的内容全部提交到git本地仓库中  </p>
-<p><code>git log</code>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——-    查看提交日志  </p>
-<p><code>git reset  - - hard   HEAD</code>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——   让工作目录中的内容和仓库中的内容保持一致<br><code>git reset  --hard HEAD^</code>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——  回到上一个版本<br><code>git  reset  - - hard 版本号</code>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——  回到指定的版本<br><code>git checkout  - -  文件名</code>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ——  从暂存区中恢复工作目录中的内容(让工作区中的指定文件，回到上次提交的时候的状态)  </p>
-<p><code>git clone &lt;url&gt;</code> - 将服务器上的项目(仓库)克隆 (使用https地址需要输入密码，使用ssh地址需要添加公钥)  </p>
-<p><code>git remote add origin 地址</code>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—– 关联远程仓库(只需要关联一次)</p>
-<p><code>git push [-u] origin master</code>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—– 提交(-u在第一次提交分之的时候才用)  </p>
-<h2 id="2-分之管理"><a href="#2-分之管理" class="headerlink" title="2.分之管理"></a>2.分之管理</h2><p>创建仓库会默认给我们创建一个master分之,这个分之一般作为提交和发布分之;开发一般会自己创建一个develop分之，用来开发和测试;多人协作的时候还可能根据不同的人或者(不同的功能)创建不同的分之，用来独立开发  </p>
-<p>常见分之： master(主要是合并develop), develop(主要合并下面的其他分支), 功能/人员分之(开发)  </p>
-<p><code>git branch [-a]</code>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        - 查看分之<br><code>git branch 分之名</code>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 创建分之<br><code>git checkout   分支名</code>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-   切换分之<br><code>git checkout -b 分之名</code>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    - 切换并创建新的分之<br><code>git diff    分之1  分之2</code>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 查看两个分之之间的差异<br><code>git merge 分之名</code>            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 让当前分之和指定分之进行合并     </p>
-<p>注意: 切换分之、push、pull，这些操作前要保证工作区是clean  </p>
-<p>怎么避免冲突：  不要发生多个分之对同一个文件在同一个版本下进行修改(和同伴确认和商量)</p>
-
-          
+          1.基本指令git init &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ——  新建git仓库git add 文件/文件夹 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ——  将文件添加到缓存区中git add -A &nbsp;&nbsp;&nbsp;&nbs
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/22/学习笔记/git常用指令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -822,48 +806,20 @@
       
         
           
-            <h3 id="1-阿里云添加80端口"><a href="#1-阿里云添加80端口" class="headerlink" title="1.阿里云添加80端口"></a>1.阿里云添加80端口</h3><p>阿里云上默认只有一个22端口用来做远程登录，如果希望在阿里云上安装支持http请求的nginx服务器，需要给阿里云添加80端口</p>
-<p><img src="./img/aliyun0.png" alt="打开安全组设置"><br><img src="./img/aliyun2.png" alt><br><img src="./img/aliyun3.png" alt><br><img src="./img/aliyun4.png" alt></p>
-<h3 id="2-安装nginx"><a href="#2-安装nginx" class="headerlink" title="2. 安装nginx"></a>2. 安装nginx</h3><p>a) 添加nginx存储库  </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release</span><br></pre></td></tr></table></figure>
-<p>b) 安装nginx</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	yum install nginx</span><br><span class="line">```  </span><br><span class="line">c) 运行nginx  </span><br><span class="line">Nginx不会自行启动。要运行Nginx</span><br></pre></td></tr></table></figure>
-<pre><code>systemctl start nginx
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">nginx的运行命令:</span><br></pre></td></tr></table></figure>
-<pre><code>systemctl status nginx 查看nginx的状态  
-systemctl start/stop/enable/disable nginx 启动/关闭/设置开机启动/禁止开机启动  
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">d) 系统启动时启动Nginx</span><br></pre></td></tr></table></figure>
-<pre><code>systemctl enable nginx
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">e）如果您正在运行防火墙，请运行以下命令以允许HTTP和HTTPS通信：</span><br></pre></td></tr></table></figure>
-<pre><code>sudo firewall-cmd --permanent --zone=public --add-service=http 
+          1.阿里云添加80端口阿里云上默认只有一个22端口用来做远程登录，如果希望在阿里云上安装支持http请求的nginx服务器，需要给阿里云添加80端口
 
-sudo firewall-cmd --permanent --zone=public --add-service=https
-
-sudo firewall-cmd --reload
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 3.nginx目录共享配置  </span><br><span class="line">a) 在contOS目录中确定一个需要共享的文件夹，例如： /home/yuting  </span><br><span class="line">b) 打开 etc/nginx/nginx.conf 文件，设置server</span><br></pre></td></tr></table></figure>
-<pre><code>#共享设置 - 在浏览器中输入服务器ip地址，会展示共享目录的文件列表
-root /home/yuting;
-location / {
-       autoindex on;
-       autoindex_exact_size on;
-       autoindex_localtime on;
-}  
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">除了可以共享文件，还可以自定义页面</span><br></pre></td></tr></table></figure>
-<pre><code>#自定义服务器页面
-location / {
-        root /home/yuting;
-        index index.html index.htm;
-}
-</code></pre><p><code>`</code></p>
-<p>注意： 如果出现权限问题，可以修改目录的权限  </p>
-<h1 id="ssh密钥认证"><a href="#ssh密钥认证" class="headerlink" title="ssh密钥认证"></a>ssh密钥认证</h1><p>1.在主机和从机上执行：<code>ssh-keygen</code></p>
-<p>2.在从机上执行:  <code>scp  id_rsa.pub  root@主机地址:~/.ssh/master.pub</code><br>(上面这条指令是将从机上的 id_rsa.pub文件拷贝传递给到主机的.ssh文件夹下，并且命名为’master.pub’)</p>
-<p>3.在主机中的.ssh文件夹中创建authorized_keys文件： <code>touch authorized_keys</code> </p>
-<p>4.修改文件authorized_keys的权限: <code>chmod 600  authorized_keys</code>  </p>
-<p>5.将master.pub放进authorized_keys文件中:  <code>cat master.pub &gt;&gt;  authorized_keys</code></p>
-<p>6.在操作主机的时候，需要主机能够自己免密访问自己就将自己的公钥放在自己的authorized_keys文件中</p>
-
-          
+2. 安装nginxa) 添加nginx存储库  
+1yum install epel-release
+b) 安装nginx
+1234	yum in
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/21/学习笔记/Nginx服务器安装/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1003,30 +959,18 @@ location / {
       
         
           
-            <ol>
-<li><p>下载MySQL源安装包: <code>wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</code>  </p>
-</li>
-<li><p>安装MySQL源: <code>yum localinstall mysql57-community-release-el7-8.noarch.rpm</code></p>
-</li>
-<li><p>安装MySQL:  <code>mysql:yum install mysql-community-server</code>  </p>
-</li>
-<li><p>设置开启启动MySQL服务: <code>systemctl enable mysqld</code>  </p>
-</li>
-<li>启动/重启MySQL服务：systemctl restart mysqld  </li>
-<li>查看MySQL初始密码：grep ‘A temporary password’ /var/log/mysqld.log  </li>
-<li>更改MySQL密码：mysqladmin -u root -p’旧密码’ password ‘新密码’<br> 这里更改密码出了问题，更改失败，这是因为密码太过简单的原因。有两个接解决方法：</li>
-</ol>
-<p>　　　　方法一：把密码设置复杂点（这是最直接的方法）</p>
-<p>　　　　方法二：关闭mysql密码强度验证(validate_password)</p>
-<p>　　　　　　　　编辑配置文件：<code>vim /etc/my.cnf</code>， 增加这么一行validate_password=off</p>
-<p>　　　　　　　　编辑后重启mysql服务：<code>systemctl restart mysqld</code>  
-　　　　　　　　  
-　　　　　　　　  </p>
-<ol start="8">
-<li>设置mysql能够远程访问:<br> a. 登录进MySQL:  <code>mysql -uroot -p密码</code><br> b. 增加一个用户给予访问权限: <code>grant all privileges on *.* to &#39;root&#39;@&#39;ip地址&#39; identified by &#39;密码&#39; with grant option;</code><br> c. 刷新权限：<code>flush privileges;­</code>  </li>
-</ol>
-
           
+下载MySQL源安装包: wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm  
+
+安装MySQL源: yum localinstall mysql57-community-release-el7-8.n
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/21/学习笔记/MySQL配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1166,120 +1110,18 @@ location / {
       
         
           
-            <p>连接云服务器：<br>1.连接服务器:    ssh  root@ip地址<br>2.退出:  logout</p>
-<p>Linux指令系统：</p>
-<p>命令名称 [命名参数] [命令对象]</p>
-<p>一、日常操作<br>1.cd指令       - 进入指定文件夹<br>cd  目录     - 进入指定目录(也可以是文件夹对应的路径)<br>               ~相对路径 — 绝对路径</p>
-<p>cd  ..       - 返回上层目录<br>cd  ~    - 回到根目录<br>cd  /    - 进入系统根目录</p>
-<ol start="2">
-<li>ls指令        - 查看当前目录中的内容<br>ls<br>ls  -l/-lh              -  查看详情<br>ls -a               - 隐藏文件也一起显示<br>ls -R            - 递归显示所有内容<br>ls -S/-t            - 按大小/时间排序</li>
-</ol>
-<p>3.pwd指令         - 显示当前完整目录<br>pwd</p>
-<p>4.文件操作指令<br>touch  文件名        - 新建文件<br>cat 文件名           - 查看文件内容<br>vim/vi  文件名          -打开文件</p>
-<p>rm    文件名        - 删除文件<br>rm - r 目录        - 删除文件夹</p>
-<p>cp  文件名1  文件名2    - 将文件1中的内容拷贝到文件2中<br>cp  文件1路径   文件2路径<br>cp -r  文件名/目录名   目录2    - 将文件/目录拷贝到目录2中</p>
-<p>mv    文件名1  文件名2    - 将文件1中的内容移动到文件2中 ,并且删除文件1（文件重命名）<br>mv  文件1路径   文件2路径</p>
-<p>mv    文件名1  文件目录    - 将文件1移动到指定目录中<br>注意: mv指令不能加-r来操作目录</p>
-<p>(注意：cp/mv/rm 后面可以跟： -i询问  -f强制  -n不覆盖)</p>
-<p>mkdir  目录名        - 新建文件夹<br>mkdir -p a/b/c        - 按层级创建a,b,c三个文件夹<br>mkdir -p a/{b,c}/{d,e,f}    -同一层级常见多个</p>
-<p>rmdir  目录名        - 删除指定空目录</p>
-<p>7.history        - 显示历史指令记录<br>bashrc 配置显示时间：export  HISTTIMEFORMAT=”[%y‐%m‐%d_%T] “<br>修改bashrc 后使其生效:  source ~/.bashrc  或 .  .bashrc   </p>
-<p>6.链接<br>ln -s 源路径  目标路径        - 给源路径对应的文件在目标路径下创建一个软链接(可以看成是快捷键)(源路径是绝对路径) (掌握！)<br>ln 源路径  目标路径            - 给源路径对应的文件在目标路径下创建一个硬链接（了解）</p>
-<p>注意: 源文件不存在的时候，软件无效，硬链接变成普通文件</p>
-<p>8.快捷键<br>ctr + f         - 前进一个字符<br>ctr + b        - 后退一个字符<br>ctr + a        - 回到行首<br>ctr + e         - 回到行尾<br>ctr + w        - 向左删除一个单词<br>ctr + u        - 向左删除全部<br>ctr + k        - 向右删除全部<br>ctr + y        - 粘贴上次删除的内容<br>ctr + l        - 清屏  </p>
-<p>二、进程相关指令(用得较少)<br>1.ps指令<br>ps                        - 进程状态<br>ps -aux  或者  ps ex            - 查看进程<br>ps -aux|grep 进程名        - 查看指定进程<br>ps grep  进程ID</p>
-<p>2.top指令<br>top                         - 动态监控进程<br>top  -p PID1,PID2,….        - 动态监控指定进程</p>
-<p>3.free指令<br>free -单位                    - 以指定单位查看内存, 例如 free -m (以Mb为单位显示内存状况), -g,  -k等！</p>
-<p>4.kill指令</p>
-<p>kill 进程号                    - 杀死指定的进程<br>kill -1/-9/-15                - -1(HUP)不间断重启，-9(KILL)强制杀死进程,-15(TERM)正常终止进程<br>pkill  进程名                - 按名字处理进程<br>killall 进程名                - 处理名字匹配的进程</p>
-<p>uptime                    - 查看系统状态</p>
-<p>三、权限管理<br>1.user和group : 一个系统可以有多个用户和多个分组； 一个分组中可以有多个用户，一个用户在不同的分组中(多对多)</p>
-<p>users                                     - 查看当前用户<br>groups                                 - 查看当前分组</p>
-<p>groupadd  分组名                            - 添加分组</p>
-<p>useradd ‐G 分组列表 ‐m ‐s /bin/bash 用户名        - 创建一个用户添加到指定的分组中(在home创建相应的文件夹)</p>
-<p>usermod -G 分组列表 用户名                    - 修改分组</p>
-<p>passwd 用户名                            - 修改密码</p>
-<p>su  用户名                                - 切换用户身份</p>
-<p>sudo                                        - 以管理员执行其他程序<br>注意： a.在ubuntu需要将用户添加到sudo分组中，才能使用sudo以管理员的身份执行程序<br>          b.在centOS中需要先执行vi 指令进入sudoers文件中在指定的位置添加内容</p>
-<pre><code>## Allow root to run any commands anywhere
-root    ALL=(ALL)       ALL
-xiaoming ALL=(ALL)      ALL        (自己添加的，xiaoming是用户名)
-</code></pre><p>2.chmod<br>chmod       权限值   文件            - 修改指定文件的权限</p>
-<p>chmod    [a,u,g,o][+,-][r,w,x]  文件            - 为指定文件，给所有用户添加相应的权限<br>                                              (a:所有，u:自己，g:同组，o:其他；<br>                                            +：添加， -: 取消；<br>                                            r:读，w:写，x:执行)<br>chown  用户名     文件            - 改变文件所有者</p>
-<p>￼</p>
-<p>(权限制是三组二进制值)<br>self      group    other<br>rwx      rwx        rwx<br>111       101        001            - 自己读写可执行，同一分组的只读可执行，其他的只可执行<br>110      100        000</p>
-<p>chmod  644  文件<br>chmod  777   文件<br>chmod 666    文件</p>
-<p>三、日志管理<br>1.cat指令<br>cat       文件                - 查看文件内容</p>
-<p>2.查看部分<br>head -n  N  文件        - 查看前N行内容<br>tail  -n  N    文件         - 查看后N行内容</p>
-<p>3.<br>less [-N]  文件</p>
-<pre><code>- 按 j 向下
-- 按 k 向上
-- 按 f 向下翻屏
-- 按    b 向上翻屏
-- 按 g 到全文开头
-- 按 G 到全文结尾
-- 按 Q 退出  
-</code></pre><p>more [-N]  文件            - 和less差不多，这个是尽可能多，less是尽可能少的加载</p>
-<p>4.处理<br>sort                  - 排序  (cat 文件 |sort)<br>uniq                - 去重  (cat 文件 |uniq) - 只会去重相邻的重复是数据，一般结合sort一起使用:  |sort|uniq<br>awk ‘{print $N}’    - 打印第N列的内容(netstat -natp|awk ‘{print $4}’)</p>
-<p>history |awk ‘{print $4}’ |sort |uniq ‐c | sort ‐rnk 1 | head ‐n 3           -获取历史指令中，使用最频繁的三个指令</p>
-<p>5.重定向<br>执行获取数据的指令  &gt; 文件  （将执行指定的结果存储到文件中 - 覆盖原文件中内容）<br>执行获取数据的指令 &gt;&gt; 文件   (将执行指定的结果存储到文件中 - 在原文件的最后追加)</p>
-<p>5.统计<br>wc -c(字符)/-w(单词)/-l(行)  文件</p>
-<p>6.查找<br>grep  查看对象    目录/文件  参数</p>
-<pre><code>参数：
-    -i    忽略大小写:         grep you bb.txt   -i
-    -n   显示行标号：      grep you bb.txt -n   /   grep you bb.txt -i -n
-    -E   通过正则表达式匹配:     grep -E  ‘正则表达式’  文件
-    注意： Linux中，正则不支持: \d, \s,\w,\b,\D,\S,\W,\B
-                                       支持：.   +, *, ?, {N,M}, [], ^, $
-
-
-    -v   忽略字段:   grep you bb.txt -v  (在bb.txt中找不包含you的所有行)
-                    grep -E &apos;[0-9]+\.[0-9]+&apos; abb.txt -v
-
-    -rn  递归查找目录，并打印行号
-    grep -r  you ./   (在当前文件夹下中所有文件中去找包行’you’的行)
-
-
-    —include=‘*.py’    仅包含 py文件: grep -r you ./ --include=&apos;*.txt&apos;
-
-    —exclude=‘*.js’    不包含 js 文件: grep -r you ./ --exclude=&apos;*.c&apos;
-
-例如：
-    grep you bb.txt  
-    grep you bb.txt -i
-    grep you bb.txt -i -n
-    grep -E &apos;[0-9]+&apos; bb.txt 
-</code></pre><p>find       DIR    -name  ‘<em>.xxx’        找到目录下所有名字匹配的文件:  find a1 -name ‘</em>.txt’(在文件夹a1中找所有txt文件)</p>
-<pre><code>例：find ./ -size +20k -size -100k -name &apos;*.txt&apos;   (找当前目录下大于20k并且小于100k的所有txt文件)
-</code></pre><p>which  指令        - 精确查找当前可执行的指令<br>whereis  指令    - 查找所有匹配的命令</p>
-<p>四、网络管理</p>
-<p>ifconfig     查看网卡状态</p>
-<p>netstat   -natp                    - 查看网络连接状态<br>netstat   -natp|grep  端口号            - 查看指定端口的网络连接状态    </p>
-<p>ping  地址<br>ping  -i   时间    地址<br>ping  -c  次数    地址</p>
-<p>telnet  ip地址    端口         - 查看远程主机网络连接状况</p>
-<p>dig 地址            - 查看DNS</p>
-<p>** wget  地址            - 下载  </p>
-<p>五、使用包管理工具<br>包管理工具：yum </p>
-<ul>
-<li>yum search：搜索软件包，例如yum search nginx。</li>
-<li>yum list installed：列出已经安装的软件包，例如yum list installed | grep zlib。</li>
-<li>yum install：安装软件包，例如yum install nginx。</li>
-<li>yum remove：删除软件包，例如yum remove nginx。</li>
-<li>yum update：更新软件包，例如yum update可以更新所有软件包，而yum update tar只会更新tar。</li>
-<li>yum check-update：检查有哪些可以更新的软件包。</li>
-<li>yum info：显示软件包的相关信息，例如yum info nginx。</li>
-</ul>
-<p>源代码构建安装</p>
-<ol>
-<li>wget  安装包的路径        -下载安装包</li>
-<li>gunzip/tar  压缩包         - 解压、解归档</li>
-<li>(设置安装路径)</li>
-<li>cd 安装包目录 执行: make &amp;&amp; make install       -编译安装包程序</li>
-<li>给可执行文件添加软连接到usr/bin目录下            -添加快捷方式</li>
-</ol>
-<p>压缩/解压缩和归档/解归档 - gzip / gunzip / xz / tar</p>
-
-          
+          连接云服务器：1.连接服务器:    ssh  root@ip地址2.退出:  logout
+Linux指令系统：
+命令名称 [命名参数] [命令对象]
+一、日常操作1.cd指令       - 进入指定文件夹cd  目录     - 进入指定目录(也可以是文件夹对应的路径)            
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/18/学习笔记/Linux指令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1419,190 +1261,42 @@ xiaoming ALL=(ALL)      ALL        (自己添加的，xiaoming是用户名)
       
         
           
-            <p>Pygame有很多的模块，不同的模块专注于不同的功能：  </p>
-<table>
-<thead>
-<tr>
-<th>模块名</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pygame.cdrom</td>
-<td>访问光驱</td>
-</tr>
-<tr>
-<td>pygame.cursors</td>
-<td>加载光标</td>
-</tr>
-<tr>
-<td>pygame.display</td>
-<td>访问显示设备</td>
-</tr>
-<tr>
-<td>pygame.draw</td>
-<td>绘制形状、线和点</td>
-</tr>
-<tr>
-<td>pygame.event</td>
-<td>管理事件</td>
-</tr>
-<tr>
-<td>pygame.font</td>
-<td>使用字体</td>
-</tr>
-<tr>
-<td>pygame.image</td>
-<td>加载和存储图片</td>
-</tr>
-<tr>
-<td>pygame.joystick</td>
-<td>使用游戏手柄或者 类似的东西</td>
-</tr>
-<tr>
-<td>pygame.key</td>
-<td>读取键盘按键</td>
-</tr>
-<tr>
-<td>pygame.mixer</td>
-<td>声音</td>
-</tr>
-<tr>
-<td>pygame.mouse</td>
-<td>鼠标</td>
-</tr>
-<tr>
-<td>pygame.movie</td>
-<td>播放视频</td>
-</tr>
-<tr>
-<td>pygame.music</td>
-<td>播放音频</td>
-</tr>
-<tr>
-<td>pygame.overlay</td>
-<td>访问高级视频叠加</td>
-</tr>
-<tr>
-<td>pygame.rect</td>
-<td>管理矩形区域</td>
-</tr>
-<tr>
-<td>pygame.sndarray</td>
-<td>操作声音数据</td>
-</tr>
-<tr>
-<td>pygame.sprite</td>
-<td>操作移动图像</td>
-</tr>
-<tr>
-<td>pygame.surface</td>
-<td>管理图像和屏幕</td>
-</tr>
-<tr>
-<td>pygame.surfarray</td>
-<td>管理点阵图像数据</td>
-</tr>
-<tr>
-<td>pygame.time</td>
-<td>管理时间和帧信息</td>
-</tr>
-<tr>
-<td>pygame.transform</td>
-<td>缩放和移动图像</td>
-</tr>
-</tbody>
-</table>
-<p>####disolay模块<br>下面主要介绍一下display模块的一些常用方法：     </p>
-<p>#####1.set_model 生成windows窗口</p>
-<pre><code>pygame.display.set_model(resolution, flags, depth)  
-</code></pre><p>resolution：可以控制生成的window的大小。传的值：(100,200)这样的<br>flags：控制你想要怎样的显示屏，可以赋一下几个全局常量。（这些常量在pygame.locals模块中）    </p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>FULLSCREEN</td>
-<td>控制全屏,0或者1来控制</td>
-</tr>
-<tr>
-<td>HWSURFACE</td>
-<td>控制是否进行硬件加速</td>
-</tr>
-<tr>
-<td>RESIZABLE</td>
-<td>控制窗口是否可以调节大小</td>
-</tr>
-<tr>
-<td>NOFRAME</td>
-<td>创建一个没有边框的窗口</td>
-</tr>
-</tbody>
-</table>
-<p>depth：不推荐设置    </p>
-<p>#####2.get_caption()获得窗口的标题  </p>
-<pre><code>pygame.display.get_caption()  
-</code></pre><p>#####3.set_caption(title)设置窗口的标题  </p>
-<pre><code>pygame.display.set_caption(title)  
-</code></pre><p>####事件  </p>
-<table>
-<thead>
-<tr>
-<th>事件</th>
-<th>产生途径</th>
-<th>参数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>QUIT</td>
-<td>用户按下关闭按钮</td>
-<td>none</td>
-</tr>
-<tr>
-<td>ATIVEEVENT</td>
-<td>Pygame被激活或者隐藏</td>
-<td>gain, state</td>
-</tr>
-<tr>
-<td>KEYDOWN</td>
-<td>键盘被按下</td>
-<td>unicode, key, mod</td>
-</tr>
-<tr>
-<td>KEYUP</td>
-<td>键盘被放开</td>
-<td>key, mod</td>
-</tr>
-<tr>
-<td>MOUSEMOTION</td>
-<td>鼠标移动</td>
-<td>pos, rel, buttons</td>
-</tr>
-<tr>
-<td>MOUSEBUTTONDOWN</td>
-<td>鼠标按下</td>
-<td>pos, button</td>
-</tr>
-<tr>
-<td>MOUSEBUTTONUP</td>
-<td>鼠标放开</td>
-<td>pos, button</td>
-</tr>
-<tr>
-<td>USEREVENT</td>
-<td>触发了一个用户事件</td>
-<td>code</td>
-</tr>
-</tbody>
-</table>
+          Pygame有很多的模块，不同的模块专注于不同的功能：  
 
-          
+
+
+模块名
+功能
+
+
+
+
+pygame.cdrom
+访问光驱
+
+
+pygame.cursors
+加载光标
+
+
+pygame.display
+访问显示设备
+
+
+pygame.draw
+绘制形状、线和点
+
+
+pygame.event
+管理事件
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/16/学习笔记/pygame/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
