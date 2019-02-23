@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="下载MySQL源安装包: wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm    安装MySQL源: yum localinstall mysql57-community-release-el7-8.noarch.rpm  安装MySQL:  mysql:yum install mysql-commu">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MySQL配置">
-<meta property="og:url" content="http://yoursite.com/2019/02/21/MySQL配置/index.html">
+<meta name="description" content="多读书，多看报，早睡觉">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="啦啦啦">
-<meta property="og:description" content="下载MySQL源安装包: wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm    安装MySQL源: yum localinstall mysql57-community-release-el7-8.noarch.rpm  安装MySQL:  mysql:yum install mysql-commu">
+<meta property="og:description" content="多读书，多看报，早睡觉">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-22T11:20:26.737Z">
+<meta property="og:updated_time" content="2019-02-23T02:15:39.010Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL配置">
-<meta name="twitter:description" content="下载MySQL源安装包: wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm    安装MySQL源: yum localinstall mysql57-community-release-el7-8.noarch.rpm  安装MySQL:  mysql:yum install mysql-commu">
+<meta name="twitter:title" content="tags">
+<meta name="twitter:description" content="多读书，多看报，早睡觉">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/21/MySQL配置/">
+  <link rel="canonical" href="http://yoursite.com/tags/">
 
 
 
 
 
-  <title>MySQL配置 | 啦啦啦</title>
+  <title>tags | 啦啦啦</title>
   
 
 
@@ -200,6 +200,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -230,163 +250,40 @@
 
   <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/MySQL配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="啦啦啦">
-    </span>
-
     
+    
+    <div class="post-block page">
       <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">MySQL配置</h1>
-        
+	<h1 class="post-title" itemprop="name headline">tags</h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-21T14:12:24+08:00">
-                2019-02-21
-              </time>
-            
 
-            
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
       
-
       
-        <ol>
-<li><p>下载MySQL源安装包: <code>wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</code>  </p>
-</li>
-<li><p>安装MySQL源: <code>yum localinstall mysql57-community-release-el7-8.noarch.rpm</code></p>
-</li>
-<li><p>安装MySQL:  <code>mysql:yum install mysql-community-server</code>  </p>
-</li>
-<li><p>设置开启启动MySQL服务: <code>systemctl enable mysqld</code>  </p>
-</li>
-<li>启动/重启MySQL服务：systemctl restart mysqld  </li>
-<li>查看MySQL初始密码：grep ‘A temporary password’ /var/log/mysqld.log  </li>
-<li>更改MySQL密码：mysqladmin -u root -p’旧密码’ password ‘新密码’<br> 这里更改密码出了问题，更改失败，这是因为密码太过简单的原因。有两个接解决方法：</li>
-</ol>
-<p>　　　　方法一：把密码设置复杂点（这是最直接的方法）</p>
-<p>　　　　方法二：关闭mysql密码强度验证(validate_password)</p>
-<p>　　　　　　　　编辑配置文件：<code>vim /etc/my.cnf</code>， 增加这么一行validate_password=off</p>
-<p>　　　　　　　　编辑后重启mysql服务：<code>systemctl restart mysqld</code>  
-　　　　　　　　  
-　　　　　　　　  </p>
-<ol start="8">
-<li>设置mysql能够远程访问:<br> a. 登录进MySQL:  <code>mysql -uroot -p密码</code><br> b. 增加一个用户给予访问权限: <code>grant all privileges on *.* to &#39;root&#39;@&#39;ip地址&#39; identified by &#39;密码&#39; with grant option;</code><br> c. 刷新权限：<code>flush privileges;­</code>  </li>
-</ol>
-
+      <div class="post-body">
+        
+        
+          <div class="tag-cloud">
+            <div class="tag-cloud-title">
+                目前共计 1 个标签
+            </div>
+            <div class="tag-cloud-tags">
+              <a href="/tags/linux/" style="font-size: 12px; color: #ccc">linux</a>
+            </div>
+          </div>
+        
+      </div>
+      
+      
       
     </div>
     
     
     
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/02/18/Linux指令/" rel="next" title="Linux指令">
-                <i class="fa fa-chevron-left"></i> Linux指令
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/21/Nginx服务器安装/" rel="prev" title="Nginx服务器">
-                Nginx服务器 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
@@ -442,7 +339,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -478,23 +393,26 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-snowflaske-o"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">啦啦啦</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -543,6 +461,9 @@
 
 
 
+  
+  
+
 
 
 
@@ -579,6 +500,16 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
   
 
 
