@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="SQL语法– DDL（数据定义语言）– DML（数据操作语言）– DCL（数据控制语言）– 注意：SQL中大小写不敏感（大写和小写是一样的）;每条SQL语句必须以分号结束; ####一、 DDL - 主要提供数据库和表的创建安、删除和修改 1. 创建数据库：create database 数据库名;create database school;– 如果不存在school2就创建它CREATE DA">
+<meta name="description" content="– DDL（数据定义语言）– DML（数据操作语言）– DCL（数据控制语言）– 注意：SQL中大小写不敏感（大写和小写是一样的）;每条SQL语句必须以分号结束; 一、 DDL - 主要提供数据库和表的创建安、删除和修改1. 创建数据库：create database 数据库名;create database school;– 如果不存在school2就创建它CREATE DATABASE IF">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL语法">
 <meta property="og:url" content="http://yoursite.com/2019/02/26/学习笔记/SQL语法/index.html">
 <meta property="og:site_name" content="啦啦啦">
-<meta property="og:description" content="SQL语法– DDL（数据定义语言）– DML（数据操作语言）– DCL（数据控制语言）– 注意：SQL中大小写不敏感（大写和小写是一样的）;每条SQL语句必须以分号结束; ####一、 DDL - 主要提供数据库和表的创建安、删除和修改 1. 创建数据库：create database 数据库名;create database school;– 如果不存在school2就创建它CREATE DA">
+<meta property="og:description" content="– DDL（数据定义语言）– DML（数据操作语言）– DCL（数据控制语言）– 注意：SQL中大小写不敏感（大写和小写是一样的）;每条SQL语句必须以分号结束; 一、 DDL - 主要提供数据库和表的创建安、删除和修改1. 创建数据库：create database 数据库名;create database school;– 如果不存在school2就创建它CREATE DATABASE IF">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-26T01:31:44.696Z">
+<meta property="og:updated_time" content="2019-02-26T01:52:36.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL语法">
-<meta name="twitter:description" content="SQL语法– DDL（数据定义语言）– DML（数据操作语言）– DCL（数据控制语言）– 注意：SQL中大小写不敏感（大写和小写是一样的）;每条SQL语句必须以分号结束; ####一、 DDL - 主要提供数据库和表的创建安、删除和修改 1. 创建数据库：create database 数据库名;create database school;– 如果不存在school2就创建它CREATE DA">
+<meta name="twitter:description" content="– DDL（数据定义语言）– DML（数据操作语言）– DCL（数据控制语言）– 注意：SQL中大小写不敏感（大写和小写是一样的）;每条SQL语句必须以分号结束; 一、 DDL - 主要提供数据库和表的创建安、删除和修改1. 创建数据库：create database 数据库名;create database school;– 如果不存在school2就创建它CREATE DATABASE IF">
 
 
 
@@ -352,9 +352,8 @@
       
 
       
-        <h3 id="SQL语法"><a href="#SQL语法" class="headerlink" title="SQL语法"></a>SQL语法</h3><p>– DDL（数据定义语言）<br>– DML（数据操作语言）<br>– DCL（数据控制语言）<br>– 注意：SQL中大小写不敏感（大写和小写是一样的）;每条SQL语句必须以分号结束;</p>
-<p>####一、 DDL - 主要提供数据库和表的创建安、删除和修改</p>
-<h5 id="1-创建数据库：create-database-数据库名"><a href="#1-创建数据库：create-database-数据库名" class="headerlink" title="1. 创建数据库：create database 数据库名;"></a>1. 创建数据库：create database 数据库名;</h5><p>create database school;<br>– 如果不存在school2就创建它<br>CREATE DATABASE IF NOT EXISTS school2;<br>– 创建数据库的时候设置字符集编码，使数据库支持中文<br>CREATE DATABASE IF NOT EXISTS school DEFAULT CHARSET utf8;<br>– 删除数据库：drop database 数据库名<br>drop database school2;<br>– 如果school存在就删除<br>DROP DATABASE IF EXISTS school2;</p>
+        <p>– DDL（数据定义语言）<br>– DML（数据操作语言）<br>– DCL（数据控制语言）<br>– 注意：SQL中大小写不敏感（大写和小写是一样的）;每条SQL语句必须以分号结束;</p>
+<h4 id="一、-DDL-主要提供数据库和表的创建安、删除和修改"><a href="#一、-DDL-主要提供数据库和表的创建安、删除和修改" class="headerlink" title="一、 DDL - 主要提供数据库和表的创建安、删除和修改"></a>一、 DDL - 主要提供数据库和表的创建安、删除和修改</h4><h5 id="1-创建数据库：create-database-数据库名"><a href="#1-创建数据库：create-database-数据库名" class="headerlink" title="1. 创建数据库：create database 数据库名;"></a>1. 创建数据库：create database 数据库名;</h5><p>create database school;<br>– 如果不存在school2就创建它<br>CREATE DATABASE IF NOT EXISTS school2;<br>– 创建数据库的时候设置字符集编码，使数据库支持中文<br>CREATE DATABASE IF NOT EXISTS school DEFAULT CHARSET utf8;<br>– 删除数据库：drop database 数据库名<br>drop database school2;<br>– 如果school存在就删除<br>DROP DATABASE IF EXISTS school2;</p>
 <h5 id="2-使用-切换数据库：use-数据库名"><a href="#2-使用-切换数据库：use-数据库名" class="headerlink" title="2. 使用/切换数据库：use 数据库名;"></a>2. 使用/切换数据库：use 数据库名;</h5><p>USE school;</p>
 <h5 id="3-新建表-CREATE-TABLE-表名-字段名-类型1-字段2-类型2-……"><a href="#3-新建表-CREATE-TABLE-表名-字段名-类型1-字段2-类型2-……" class="headerlink" title="3. 新建表 CREATE TABLE 表名(字段名 类型1, 字段2 类型2,……);"></a>3. 新建表 CREATE TABLE 表名(字段名 类型1, 字段2 类型2,……);</h5><p>– 注意：a. 表名一般需要加前缀’t’或者’tb’;<br>– b. 字段用来确定表中要存储哪些数据，字段名随便命名但是不能是关键字<br>– c. 数据类型必须是MySQL支持的数据类型<br>– 常用数据类型：int,char(size)-定长字符串,varchar(size)-不定长字符串,text-字符串，bit-布尔，date-日期<br>– CREATE TABLE IF NOT EXISTS 表名(字段名 类型1 约束1, 字段2 类型2 约束2.……)<br>– 常用的约束： not null - 不能为空， default 设置默认值，unique - 值唯一， primary key - 主键约束<br>– 主键约束：主键指的是表中能够唯一标识一条记录的字段(通过主键的值能够找到表中唯一一行记录)<br>– 注意：一个字段可以添加多个约束，多个约束之间用空格隔开</p>
 <p>CREATE TABLE IF NOT EXISTS t_student<br>(<br>stuid int NOT NULL auto_increment,<br>stuname varchar(20) NOT NULL,<br>gender bit DEFAULT 1,<br>birth date,<br>PRIMARY KEY(stuid)<br>);</p>
@@ -548,7 +547,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL语法"><span class="nav-number">1.</span> <span class="nav-text">SQL语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-创建数据库：create-database-数据库名"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. 创建数据库：create database 数据库名;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用-切换数据库：use-数据库名"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. 使用/切换数据库：use 数据库名;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-新建表-CREATE-TABLE-表名-字段名-类型1-字段2-类型2-……"><span class="nav-number">1.0.3.</span> <span class="nav-text">3. 新建表 CREATE TABLE 表名(字段名 类型1, 字段2 类型2,……);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-删除表：-DROP-TABLE-IF-EXISTS-表名"><span class="nav-number">1.0.4.</span> <span class="nav-text">4. 删除表： DROP TABLE IF EXISTS 表名;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-修改表"><span class="nav-number">1.0.5.</span> <span class="nav-text">5. 修改表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、DML-数据库操作语言-–-主要针对数据库中数据的增、删、改、查"><span class="nav-number">1.1.</span> <span class="nav-text">二、DML(数据库操作语言)  –  主要针对数据库中数据的增、删、改、查</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、增（添加数据-记录）"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、增（添加数据/记录）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-删-删除数据-记录"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 删(删除数据/记录)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-改（修改数据-记录）"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 改（修改数据/记录）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-查-获取数据"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 查(获取数据)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、-DDL-主要提供数据库和表的创建安、删除和修改"><span class="nav-number">1.</span> <span class="nav-text">一、 DDL - 主要提供数据库和表的创建安、删除和修改</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-创建数据库：create-database-数据库名"><span class="nav-number">1.1.</span> <span class="nav-text">1. 创建数据库：create database 数据库名;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用-切换数据库：use-数据库名"><span class="nav-number">1.2.</span> <span class="nav-text">2. 使用/切换数据库：use 数据库名;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-新建表-CREATE-TABLE-表名-字段名-类型1-字段2-类型2-……"><span class="nav-number">1.3.</span> <span class="nav-text">3. 新建表 CREATE TABLE 表名(字段名 类型1, 字段2 类型2,……);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-删除表：-DROP-TABLE-IF-EXISTS-表名"><span class="nav-number">1.4.</span> <span class="nav-text">4. 删除表： DROP TABLE IF EXISTS 表名;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-修改表"><span class="nav-number">1.5.</span> <span class="nav-text">5. 修改表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、DML-数据库操作语言-–-主要针对数据库中数据的增、删、改、查"><span class="nav-number">2.</span> <span class="nav-text">二、DML(数据库操作语言)  –  主要针对数据库中数据的增、删、改、查</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、增（添加数据-记录）"><span class="nav-number">2.1.</span> <span class="nav-text">1、增（添加数据/记录）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-删-删除数据-记录"><span class="nav-number">2.2.</span> <span class="nav-text">2. 删(删除数据/记录)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-改（修改数据-记录）"><span class="nav-number">2.3.</span> <span class="nav-text">3. 改（修改数据/记录）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-查-获取数据"><span class="nav-number">2.4.</span> <span class="nav-text">4. 查(获取数据)</span></a></li></ol></li></ol></div>
             
 
           </div>
