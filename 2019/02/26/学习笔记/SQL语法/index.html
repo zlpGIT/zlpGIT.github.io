@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MySQL,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="SQL语法– DDL（数据定义语言）– DML（数据操作语言）– DCL（数据控制语言）– 注意：SQL中大小写不敏感（大写和小写是一样的）;每条SQL语句必须以分号结束; ####一、 DDL - 主要提供数据库和表的创建安、删除和修改 1. 创建数据库：create database 数据库名;create database school;– 如果不存在school2就创建它CREATE DA">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL语法">
+<meta property="og:url" content="http://yoursite.com/2019/02/26/学习笔记/SQL语法/index.html">
+<meta property="og:site_name" content="啦啦啦">
+<meta property="og:description" content="SQL语法– DDL（数据定义语言）– DML（数据操作语言）– DCL（数据控制语言）– 注意：SQL中大小写不敏感（大写和小写是一样的）;每条SQL语句必须以分号结束; ####一、 DDL - 主要提供数据库和表的创建安、删除和修改 1. 创建数据库：create database 数据库名;create database school;– 如果不存在school2就创建它CREATE DA">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-26T01:31:44.696Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL语法">
+<meta name="twitter:description" content="SQL语法– DDL（数据定义语言）– DML（数据操作语言）– DCL（数据控制语言）– 注意：SQL中大小写不敏感（大写和小写是一样的）;每条SQL语句必须以分号结束; ####一、 DDL - 主要提供数据库和表的创建安、删除和修改 1. 创建数据库：create database 数据库名;create database school;– 如果不存在school2就创建它CREATE DA">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/26/学习笔记/SQL语法/">
+
+
+
+
+
+  <title>SQL语法 | 啦啦啦</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">啦啦啦</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/学习笔记/SQL语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zlpGIT">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/ali.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="啦啦啦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SQL语法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T09:28:54+08:00">
+                2019-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="SQL语法"><a href="#SQL语法" class="headerlink" title="SQL语法"></a>SQL语法</h3><p>– DDL（数据定义语言）<br>– DML（数据操作语言）<br>– DCL（数据控制语言）<br>– 注意：SQL中大小写不敏感（大写和小写是一样的）;每条SQL语句必须以分号结束;</p>
+<p>####一、 DDL - 主要提供数据库和表的创建安、删除和修改</p>
+<h5 id="1-创建数据库：create-database-数据库名"><a href="#1-创建数据库：create-database-数据库名" class="headerlink" title="1. 创建数据库：create database 数据库名;"></a>1. 创建数据库：create database 数据库名;</h5><p>create database school;<br>– 如果不存在school2就创建它<br>CREATE DATABASE IF NOT EXISTS school2;<br>– 创建数据库的时候设置字符集编码，使数据库支持中文<br>CREATE DATABASE IF NOT EXISTS school DEFAULT CHARSET utf8;<br>– 删除数据库：drop database 数据库名<br>drop database school2;<br>– 如果school存在就删除<br>DROP DATABASE IF EXISTS school2;</p>
+<h5 id="2-使用-切换数据库：use-数据库名"><a href="#2-使用-切换数据库：use-数据库名" class="headerlink" title="2. 使用/切换数据库：use 数据库名;"></a>2. 使用/切换数据库：use 数据库名;</h5><p>USE school;</p>
+<h5 id="3-新建表-CREATE-TABLE-表名-字段名-类型1-字段2-类型2-……"><a href="#3-新建表-CREATE-TABLE-表名-字段名-类型1-字段2-类型2-……" class="headerlink" title="3. 新建表 CREATE TABLE 表名(字段名 类型1, 字段2 类型2,……);"></a>3. 新建表 CREATE TABLE 表名(字段名 类型1, 字段2 类型2,……);</h5><p>– 注意：a. 表名一般需要加前缀’t’或者’tb’;<br>– b. 字段用来确定表中要存储哪些数据，字段名随便命名但是不能是关键字<br>– c. 数据类型必须是MySQL支持的数据类型<br>– 常用数据类型：int,char(size)-定长字符串,varchar(size)-不定长字符串,text-字符串，bit-布尔，date-日期<br>– CREATE TABLE IF NOT EXISTS 表名(字段名 类型1 约束1, 字段2 类型2 约束2.……)<br>– 常用的约束： not null - 不能为空， default 设置默认值，unique - 值唯一， primary key - 主键约束<br>– 主键约束：主键指的是表中能够唯一标识一条记录的字段(通过主键的值能够找到表中唯一一行记录)<br>– 注意：一个字段可以添加多个约束，多个约束之间用空格隔开</p>
+<p>CREATE TABLE IF NOT EXISTS t_student<br>(<br>stuid int NOT NULL auto_increment,<br>stuname varchar(20) NOT NULL,<br>gender bit DEFAULT 1,<br>birth date,<br>PRIMARY KEY(stuid)<br>);</p>
+<h5 id="4-删除表：-DROP-TABLE-IF-EXISTS-表名"><a href="#4-删除表：-DROP-TABLE-IF-EXISTS-表名" class="headerlink" title="4. 删除表： DROP TABLE IF EXISTS 表名;"></a>4. 删除表： DROP TABLE IF EXISTS 表名;</h5><p>–  清空表中的记录：TRUNCATE TABLE 表名;<br>DROP TABLE IF EXISTS t_student;<br>TRUNCATE TABLE t_student;</p>
+<h5 id="5-修改表"><a href="#5-修改表" class="headerlink" title="5. 修改表"></a>5. 修改表</h5><p>– 5.1 添加字段：ALTER TABLE 表名 add COLUMN 字段名 字段类型 约束;<br>ALTER TABLE t_student ADD COLUMN score FLOAT(5,2) DEFAULT 0;<br>– 5.2 删除字段：ALTER TABLE 表名 DROP COLUMN 字段名;<br>ALTER TABLE t_student DROP COLUMN score; </p>
+<h4 id="二、DML-数据库操作语言-–-主要针对数据库中数据的增、删、改、查"><a href="#二、DML-数据库操作语言-–-主要针对数据库中数据的增、删、改、查" class="headerlink" title="二、DML(数据库操作语言)  –  主要针对数据库中数据的增、删、改、查"></a>二、DML(数据库操作语言)  –  主要针对数据库中数据的增、删、改、查</h4><h5 id="1、增（添加数据-记录）"><a href="#1、增（添加数据-记录）" class="headerlink" title="1、增（添加数据/记录）"></a>1、增（添加数据/记录）</h5><p>– 1.1 插入数据/记录：insert into 表名 values (值1,值2,值3,……)  - 依次给指定表中的字段赋值<br>INSERT INTO t_student VALUES(101,’张三’,0,’2019-02-25’)<br>– 1.2 插入数据/记录：insert into 表名(字段名1,字段名2,……) values(值1，值2,……) 以指定的顺序给指定的数据<br>INSERT INTO t_student (stuname,birth) VALUES (‘李四’,’2919-02-22’)<br>– 值的问题：sql中是数字对应的值直接写，字符串需要使用引号引起来，bit类型的值只有0或1，事件可以用内容是满足时间格式字符串也可以是通过时间函数获取的值<br>– 时间函数：now() - 当前时间 date(now) - 当前日期 year(now) - 当前年 month(now())<br>INSERT INTO t_student (stuname,birth) VALUES (‘王五’,DATE(NOW()));<br>– 一次插入多条记录<br>INSERT INTO t_student (stuname,birth) VALUES (‘赵六’,DATE(NOW())) ,(‘秦七’,DATE(NOW()));</p>
+<h5 id="2-删-删除数据-记录"><a href="#2-删-删除数据-记录" class="headerlink" title="2. 删(删除数据/记录)"></a>2. 删(删除数据/记录)</h5><p>– delete from 表名; – 删除指定表中所有记录<br>– delete from 表名 where 条件语句; - 删除满足条件的记录<br>– SQL中的条件语句： = 判断是否相等，&lt;&gt;不等于，python中的!=一样，&gt;=，&lt;=<br>DELETE FROM t_student WHERE stuid=100;</p>
+<h5 id="3-改（修改数据-记录）"><a href="#3-改（修改数据-记录）" class="headerlink" title="3. 改（修改数据/记录）"></a>3. 改（修改数据/记录）</h5><p>– update 表名 set 字段=新值; 将指定表中所有行的指定列/字段赋值为新值<br>UPDATE t_student set birth=’1999-12-31’,gender=1;</p>
+<p>– UPDATE 表名 SET 字段1=新值1, 字段2=新值2,…… WHERE 条件语句; - 将表中满足条件的行中指定字段的值赋为新值<br>UPDATE t_student set gender=0 WHERE stuname=’李四’;</p>
+<p>– 通配符%:表示任意个数的任意字符(包括0个)<br>UPDATE t_student SET birth=’2000-01-01’ WHERE stuname LIKE ‘王%’;<br>– 通配符_：表示有一个任意字符<br>UPDATE t_student SET birth=’2333-01-01’ WHERE stuname LIKE ‘王_’;  – 修改stuname只有两个字符，且第一个字符是‘王’对应的行的birth的值<br>– 注意：通配符只针对字符串有效</p>
+<h5 id="4-查-获取数据"><a href="#4-查-获取数据" class="headerlink" title="4. 查(获取数据)"></a>4. 查(获取数据)</h5><p>– 4.1 直接查询<br>– select <em> from 表名; - 获取指定表中所有的行和列<br>USE school ;SELECT </em> FROM t_student;</p>
+<p>– SELECT 字段名1,字段名2,…… from 表名;  -  获取指定表中所有行指定的列<br>SELECT stuname, stuid FROM t_student;</p>
+<p>– SELECT 字段名1, 字段名2,…… FROM 表名; - 获取指定表中所有行指定的列</p>
+<p>– SELECT <em> FROM 表名 WHERE 条件; - 获取指定表中所有满足条件的行所有列的数据<br>SELECT </em> FROM t_student WHERE stuid&gt;115;</p>
+<p>– 4.2 列重命名<br>– SELECT 字段1 AS 新字段1， 字段2 AS 新字段2,…… from 表名;</p>
+<p>USE school; SELECT stuid AS ‘学号’, gender AS ‘性别’ FROM t_student; </p>
+<p>– 4.3 对查询结果重新赋值(一般针对布尔数据)<br>– SELECT IF (字段相关的条件语句，值1，值2) from 表名; -  查询指定字段，并且判断字段对应的值是0还是1，如果是1结果为值1，否则为值2<br>– 注意：这儿的if的用法是MySQL转悠的<br>USE school ;SELECT stuname,IF(gender,’男’,’女’) FROM t_student;<br> – 通用写法： CASE  字段 WHEN 值 THEN 新值1 ELSE 新值2 end<br> USE school; SELECT CASE  gender<br>    WHEN 1 THEN<br>        ‘男’<br>    ELSE<br>        ‘女’<br>END AS ‘性别’ FROM t_student;</p>
+<p>– 4.4 对列进行合并<br>– SELECT CONCAT( 字段1,字段2,…) FROM 表名;<br>SELECT CONCAT(stuname,stuid) AS ‘name_id’ FROM t_student;<br>SELECT CONCAT(stuname,’:’,gender) AS ‘name_id’ FROM t_student;<br>– 注意：数字和字符串数据合一合并，bit类型的数据不可以合并<br>– SELECT CONCAT(stuname,’:’,gender) AS ‘name_id’ FROM t_student;</p>
+<p>– 4.5 模糊查询 - 查询的时候通过like条件来指定查询对象<br>SELECT <em> FROM t_student WHERE stuname like ‘%李四%’;<br>– SQL中支持逻辑运算符and（逻辑与运算）和or（逻辑或运算）, NOT (逻辑非)<br>SELECT </em> FROM t_student WHERE stuname LIKE ‘%飞%’ OR NOT stuid &lt; 110;</p>
+<p>– 4.6 排序(先按之前的任何语法进行查询在排序)<br>– SELECT <em> FROM 表名 ORDER BY 字段; - 对查询结果按照指定字段的值进行升序排序<br>SELECT </em> FROM t_student ORDER BY stuname;<br>– SELECT <em> FROM 表名 ORDER BY 字段;<br>– 查询结果按照指定字段的值进行升序排序<br>– SELECT </em> FROM 表名 ORDER BY 字段 ASC;<br>– 对查询结果按照指定字段的值进行升序排序<br>– SELECT * FROM 表名 ORDER BY 字段 DESC;<br>– 对查询结果按照指定字段的值进行降序排序</p>
+<p>– 排序的时候通过在 ORDER BY 的后边加多个字段，进行联排。排序的时候前面的字段的优先级高些<br>– SELECT <em> FROM 表名 ORDER BY 字段1 ASC, 字段2; 对查询结果先按照字段1的值进行升序排序，当两个一样的时候按照字段2的值进行降序排序<br>– 4.7 限制<br>– SELECT </em> FROM 表名 LIMIT 数字; - 获取查询结果的前指定数量条记录<br>SELECT <em> FROM t_student LIMIT 3; – 获取查询结果的前三条记录<br>– SELECT </em> FROM 表名 LIMIT M OFFSET N;  – 对查询结果跳过前N条数据，取M条数据出来<br>SELECT * FROM t_student LIMIT 3 OFFSET 4; – 跳过前4条数据，然后取3条数据</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/22/学习笔记/vim编辑器之神/" rel="next" title="vim编辑器之神">
+                <i class="fa fa-chevron-left"></i> vim编辑器之神
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/ali.jpg" alt="zlpGIT">
+            
+              <p class="site-author-name" itemprop="name">zlpGIT</p>
+              <p class="site-description motion-element" itemprop="description">多读书，多看报，早睡觉</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL语法"><span class="nav-number">1.</span> <span class="nav-text">SQL语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-创建数据库：create-database-数据库名"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. 创建数据库：create database 数据库名;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用-切换数据库：use-数据库名"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. 使用/切换数据库：use 数据库名;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-新建表-CREATE-TABLE-表名-字段名-类型1-字段2-类型2-……"><span class="nav-number">1.0.3.</span> <span class="nav-text">3. 新建表 CREATE TABLE 表名(字段名 类型1, 字段2 类型2,……);</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-删除表：-DROP-TABLE-IF-EXISTS-表名"><span class="nav-number">1.0.4.</span> <span class="nav-text">4. 删除表： DROP TABLE IF EXISTS 表名;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-修改表"><span class="nav-number">1.0.5.</span> <span class="nav-text">5. 修改表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、DML-数据库操作语言-–-主要针对数据库中数据的增、删、改、查"><span class="nav-number">1.1.</span> <span class="nav-text">二、DML(数据库操作语言)  –  主要针对数据库中数据的增、删、改、查</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、增（添加数据-记录）"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、增（添加数据/记录）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-删-删除数据-记录"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 删(删除数据/记录)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-改（修改数据-记录）"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 改（修改数据/记录）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-查-获取数据"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 查(获取数据)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-snowflaske-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">啦啦啦</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
